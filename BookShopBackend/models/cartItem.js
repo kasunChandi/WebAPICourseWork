@@ -32,6 +32,11 @@ const itemSchema = new mongoose.Schema({
         type: String,
         default: " LKR"
 
+    },
+
+    auther:{
+    type :String,
+    required :true
     }
 
 
