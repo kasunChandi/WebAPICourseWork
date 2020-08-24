@@ -10,13 +10,19 @@ const itemSchema = new mongoose.Schema({
     },
     itemName:{
         type :String,
-        maxlength :20,
+        maxlength :100,
         minlength :4,
         required : true
     },
-    itemaDisCription:{
+    author:{
+        type: String,
+        maxlength: 100,
+        minlength: 10,
+        required: true
+    },
+    itemDescription:{
         type : String,
-        maxlength : 50,
+        maxlength : 1000,
         required : true
     },
     imgUrl:{
@@ -26,23 +32,14 @@ const itemSchema = new mongoose.Schema({
         },
     itemQty:Number,
 
-    
-    itemPrce: Number,
+    itemPrice: Number,
     Currencytype:{
         type: String,
         default: " LKR"
 
-    },
-
-    auther:{
-    type :String,
-    required :true
     }
-
-
 
 });
 
-
-let cartItem = mongoose.model("Item", itemSchema);
-module.exports = cartItem;
+let Item = mongoose.model("Item", itemSchema);
+module.exports = Item;
