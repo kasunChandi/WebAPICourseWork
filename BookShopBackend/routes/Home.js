@@ -8,8 +8,8 @@ router.get('/', async(req, res) =>{
      res.send(itemList);
 });
 
-router.get('/:itemId', async (req, res) => {
-    let book = await Book.findById(req.params.itemId);
+router.get('/:itemid', async (req, res) => {
+    let book = await Book.findById(req.params.itemid);
 
     if (!book) {
         res.status(404).send("The given book does not exist on our server");

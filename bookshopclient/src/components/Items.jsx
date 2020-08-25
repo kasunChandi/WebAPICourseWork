@@ -9,18 +9,40 @@ class Items extends Component {
 
   render() {
     return (
-      <div className="p-3 mb-2 bg-secondary text-black">
-        <div className="container">
-          <div className="row">
+        <div className="container"  >
+          <div className="row" >
             {this.state.allBooks.map((books) => (
               <div className="col" key={books.id}>
-                <ItemCollection key={books.id} books={books} />
+                <ItemCollection 
+                  key={books.id} 
+                  books={books}
+                  onView={() => this.viewItem(books.id)}
+                />
               </div>
             ))}
           </div>
         </div>
-      </div>
     );
+  }
+
+  async viewItem(itemID){
+    const { data } = await axios.get(`http://localhost:5000/api/home/${itemID}`);
+    console.log(data);
+
+    let books = data.map((book) => {
+      return {
+        id: book._id,
+        imgUrl: book.imgUrl,
+        itemCode: book.itemCode,
+        itemName: book.itemName,
+        author: book.author,
+        itemDescription: book.itemDescription,
+        itemQty: book.itemQty,
+        Currencytype: book.Currencytype,
+        itemPrice: book.itemPrice,
+      };
+    });
+    this.setState({ allBooks: books });
   }
 
   async componentDidMount() {
