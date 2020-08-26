@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import AuthNav from "./authNav";
+import Register from "./signupButton";
 
 class Navbar extends Component {
   state = {};
@@ -7,13 +9,15 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-dark bg-dark">
-        <nav className="ml-auto">
-          <Link to="/">Home</Link>{" "}
-          <Link to="/login">SignIn</Link>{" "}
-          <Link to="/register">SignUp</Link>{" "}
-          <Link to="/aboutus">About Us</Link>
-          </nav>
+        <nav className="navbar navbar-dark bg-dark nav justify-content-end">
+       
+          <Link className="btn btn-success" to="/">Home</Link>{" "}
+          {/* <Link to="/login">SignIn</Link>{" "}
+           <Link to="/register">SignUp</Link>{" "}   */}
+            <AuthNav/>
+            <Register/>
+          <Link className="btn btn-success" to="/aboutus">About Us</Link>
+         
         </nav>
 
         <div className="text-center">

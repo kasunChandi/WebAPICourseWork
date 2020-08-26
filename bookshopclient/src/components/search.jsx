@@ -43,6 +43,7 @@ class Search extends Component {
     // console.log(data.itemCode);
     // this.setState({ book: data });
   //}
+  
 }
 
 export default Search;
