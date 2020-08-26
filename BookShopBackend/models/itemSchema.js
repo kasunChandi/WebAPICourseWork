@@ -37,7 +37,9 @@ const itemSchema = new mongoose.Schema({
         type: String,
         default: " LKR"
 
-    }
+    },
+
+    likeCount: Number
 
 });
 
