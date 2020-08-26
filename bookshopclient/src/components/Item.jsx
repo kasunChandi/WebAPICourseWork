@@ -8,7 +8,7 @@ class Item extends Component {
     return (
 
       <div className="card" style={{ width: "13rem" ,height: "30rem"}}>
-        <Link className="btn btn-primary" to={`/viewDetails/${this.props.books.id}`} >
+        <Link className="btn btn-secondary" to={`/viewDetails/${this.props.books.id}`} >
           <img src={this.props.books.imgUrl} className="card-img-top" alt="..." height="250px" width="10px" />
         </Link>
         <div className="card-body" >

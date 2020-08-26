@@ -22,9 +22,12 @@ class Search extends Component {
     const text = document.getElementById("textis");
     console.log(text);
     // const { data } = await axios.get(
-    //     `http://localhost:5000/api/home/${this.props.match.params.id}`
-    //   );
+    //   `http://localhost:5000/api/home/${this.props.match.params.id}`
+    // );
+    // console.log(data.itemCode);
+    // this.setState({ book: data });
   }
+  
 }
 
 export default Search;

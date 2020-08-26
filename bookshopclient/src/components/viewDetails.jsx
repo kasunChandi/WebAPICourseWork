@@ -26,7 +26,7 @@ class ItemSelect extends Component {
                             </aside>
                         </section>
                         <section id="bookdescription">
-                            <h7>Book Description:</h7><br/>
+                            <h6>Book Description:</h6><br/>
                             <span itemProp="articleBody">
                                 {this.state.book.itemDescription}
                             </span><br/><br/>
