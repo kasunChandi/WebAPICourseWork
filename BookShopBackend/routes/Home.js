@@ -18,6 +18,15 @@ router.get('/:itemid', async (req, res) => {
     res.send(book);
 });
 
+router.put('/:itemid', async (req, res) => {
+    let book = await Book.findOneAndUpdate(
+        { _id: req.params.itemid },
+        { $set: { likeCount: req.body.likeCount }},
+        { new: true, useFindAndModify: false}
+    );
+    res.send(book);
+})
+
 router.post('/', async (req, res) => {
 
     if (!req.body.itemCode) {
