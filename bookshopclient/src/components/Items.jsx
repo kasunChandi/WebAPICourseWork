@@ -5,22 +5,29 @@ import axios from "axios";
 class Items extends Component {
   state = {
     allBooks: [],
+    result: []
   };
 
   render() {
     return (
-      <div className="p-3 mb-2 bg-secondary text-black">
-        <div className="container">
-          <div className="row">
+        <div className="container"  >
+          <div className="row" >
             {this.state.allBooks.map((books) => (
               <div className="col" key={books.id}>
-                <ItemCollection key={books.id} books={books} />
+                <ItemCollection 
+                  key={books.id} 
+                  books={books}
+                  onView={() => this.viewData(books)}
+                />
               </div>
             ))}
           </div>
         </div>
-      </div>
     );
+  }
+
+  async viewData(books){
+    await axios.get(`http://localhost:5000/api/home/${books.id}`);
   }
 
   async componentDidMount() {

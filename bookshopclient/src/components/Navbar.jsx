@@ -25,26 +25,6 @@ class Navbar extends Component {
           />
           <hr />
         </div>
-        <div>
-          <div className="input-group mb-3">
-            <div className="input-group-prepend">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                id="button-addon1"
-              >
-                Search
-              </button>
-            </div>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search books "
-              aria-label="Example text with button addon"
-              aria-describedby="button-addon1"
-            />
-          </div>
-        </div>
       </div>
     );
   }
