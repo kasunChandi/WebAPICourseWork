@@ -17,7 +17,7 @@ class Items extends Component {
                 <ItemCollection 
                   key={books.id} 
                   books={books}
-                  onView={() => this.viewData(books)}
+                  onLike={() => this.likeBook(books)}
                 />
               </div>
             ))}
@@ -26,8 +26,18 @@ class Items extends Component {
     );
   }
 
-  async viewData(books){
-    await axios.get(`http://localhost:5000/api/home/${books.id}`);
+  async likeBook(books){
+    
+    await axios.put(`http://localhost:5000/api/home/${books.id}`, {
+      likeCount: books.likeCount + 1,
+    });
+
+    let allBooks = [...this.state.allBooks];
+    let index = allBooks.indexOf(books);
+    allBooks[index] = {...books };
+    allBooks[index].likeCount++;
+    this.setState({allBooks : allBooks});
+    
   }
 
   async componentDidMount() {
@@ -45,6 +55,7 @@ class Items extends Component {
         itemQty: book.itemQty,
         Currencytype: book.Currencytype,
         itemPrice: book.itemPrice,
+        likeCount: book.likeCount,
       };
     });
     this.setState({ allBooks: books });

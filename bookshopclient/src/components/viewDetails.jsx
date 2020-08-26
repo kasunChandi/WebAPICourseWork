@@ -29,9 +29,13 @@ class ItemSelect extends Component {
                             <h7>Book Description:</h7><br/>
                             <span itemProp="articleBody">
                                 {this.state.book.itemDescription}
-                            </span>
+                            </span><br/><br/>
                         </section>
+                        <div>
+                            <p style={{fontSize:"13px"}}>👍 : {this.state.book.likeCount} </p>
+                        </div>
                     </div>  
+                    
                     <div className="container" align="right">
                         <button className="btn btn-success" >Add to cart</button>
                     </div>
