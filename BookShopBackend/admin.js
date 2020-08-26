@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const mongoose = require('mongoose');
 const admin = express();  // check on it. not sure if this is correct. should it be router?
 const PORT = 5000;
 
