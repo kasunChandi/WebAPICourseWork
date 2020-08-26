@@ -9,6 +9,7 @@ class ItemSelect extends Component {
 
     return (
         <table align="center">
+            <tbody>
             <tr>
                 <td>
                     <img src={this.state.book.imgUrl} className="card-img-top" alt="..." height="322px" width="15px" />
@@ -41,6 +42,7 @@ class ItemSelect extends Component {
                     </div>
                 </td>
             </tr>
+            </tbody>
         </table>
 
     );
