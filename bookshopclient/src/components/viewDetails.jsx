@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class ItemSelect extends Component {
   state = {
@@ -27,7 +28,7 @@ class ItemSelect extends Component {
                             </aside>
                         </section>
                         <section id="bookdescription">
-                            <h6>Book Description:</h6><br/>
+                            <h6>Book Description:</h6>
                             <span itemProp="articleBody">
                                 {this.state.book.itemDescription}
                             </span><br/><br/>
@@ -38,7 +39,8 @@ class ItemSelect extends Component {
                     </div>  
                     
                     <div className="container" align="right">
-                        <button className="btn btn-success" >Add to cart</button>
+                        <button className="btn btn-success" >Add to cart</button>{" "}
+                        <Link className="btn btn-secondary"   to="/">Go Back </Link>
                     </div>
                 </td>
             </tr>

@@ -1,33 +1,44 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 class Search extends Component {
   state = {
-    
+    book:{},
+  }
+
+  constructor(props)
+    {
+      super(props);
+      this.state = {value: ''};
+      this.addValue = this.addValue.bind(this);
+      this.updateInput = this.updateInput.bind(this);
+    }
+
+  addValue(evt){
+    evt.preventDefault();
+    if(this.state.value !== undefined){
+      console.log(this.state.value);
+    }
+  }
+  updateInput(evt){
+    this.state={value: evt.target.value};
   }
 
   render() {
+    
     return (
         <div className="input-group mb-3">
             <div className="input-group-prepend">
-                <button className="btn btn-outline-secondary" onClick={document.getElementById("textis")}>
+                <button className="btn btn-outline-secondary" onClick={this.addValue}>
                     Search
                 </button>
             </div>
-            <input type="text" className="form-control" id="textis" placeholder="Search books " aria-label="Example text with button addon" aria-describedby="button-addon1"/>
+            <input type="text" className="form-control" name="title" placeholder="Search books " 
+              aria-label="Example text with button addon" aria-describedby="button-addon1"
+              onChange={this.updateInput}
+            />
         </div>
     );
-  }
-  async componentDidMount() {
-    const text = document.getElementById("textis");
-    console.log(text);
-    // const { data } = await axios.get(
-    //   `http://localhost:5000/api/home/${this.props.match.params.id}`
-    // );
-    // console.log(data.itemCode);
-    // this.setState({ book: data });
-  }
-  
+  }  
 }
 
 export default Search;

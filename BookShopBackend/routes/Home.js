@@ -18,6 +18,16 @@ router.get('/:itemid', async (req, res) => {
     res.send(book);
 });
 
+// router.get('/:itemname', async (req, res) => {
+//     let book = await Book.findById(req.params.itemName);
+
+//     if (!book) {
+//         res.status(404).send("The given book does not exist on our server");
+//     }
+
+//     res.send(book);
+// });
+
 router.put('/:itemid', async (req, res) => {
     let book = await Book.findOneAndUpdate(
         { _id: req.params.itemid },
@@ -41,7 +51,8 @@ router.post('/', async (req, res) => {
             itemDescription: req.body.itemDescription,
             imgUrl: req.body.imgUrl,
             itemQty: req.body.itemQty,
-            itemPrice: req.body.itemPrice
+            itemPrice: req.body.itemPrice,
+            likeCount: req.body.likeCount
         });
 
         bookToBeAdded = await bookToBeAdded.save();
