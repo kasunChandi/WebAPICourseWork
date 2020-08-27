@@ -13,7 +13,7 @@ const SignupButton = () => {
         })
       }
       variant="primary"
-      className="btn btn-success"
+      className="btn btn-secondary"
     >
       Sign Up
     </button>

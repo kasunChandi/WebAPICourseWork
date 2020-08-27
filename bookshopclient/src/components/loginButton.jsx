@@ -9,7 +9,7 @@ const LoginButton = () => {
     <button
       onClick={() => loginWithRedirect()}
       variant="primary"
-      className="btn btn-success"
+      className="btn btn-secondary"
     >
       Log In
     </button> 

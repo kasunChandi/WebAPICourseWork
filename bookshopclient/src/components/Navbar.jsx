@@ -11,12 +11,12 @@ class Navbar extends Component {
       <div>
         <nav className="navbar navbar-dark bg-dark nav justify-content-end">
        
-          <Link className="btn btn-success" to="/">Home</Link>{" "}
+          <Link className="btn btn-secondary" to="/">Home</Link>{" "}
           {/* <Link to="/login">SignIn</Link>{" "}
            <Link to="/register">SignUp</Link>{" "}   */}
             <AuthNav/>
             <Register/>
-          <Link className="btn btn-success" to="/aboutus">About Us</Link>
+          <Link className="btn btn-secondary" to="/aboutus">About Us</Link>
          
         </nav>
 
