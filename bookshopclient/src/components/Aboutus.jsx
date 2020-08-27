@@ -8,6 +8,7 @@ class Aboutus extends Component {
         return (
            <div>
                <h1>About us page</h1>
+               <h1> test merge </h1>
            </div>
         )
     }
