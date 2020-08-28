@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import ViewDetails from './components/viewDetails';
 import Search from './components/search';
 import Auth0ProviderWithHistory  from './auth0histroy';
+import './styles.css'
 
 
 ReactDom.render(

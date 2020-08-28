@@ -1,0 +1,26 @@
+.top-section{
+   margin-right: 0px !important;
+   margin-left: 0px !important;
+
+}
+
+.cart-card{
+    margin: 10px 0px;
+    height: 15rem;
+    border: 2px solid #0061a1;
+}
+
+.cart-title{
+    text-align: center;
+    font-weight: 700;
+    color: #0061a1;
+}
+
+.item-no{
+    width: 11rem;
+    margin-top: 31px;
+}
+
+.cart-img{
+    width: 5rem;
+}
