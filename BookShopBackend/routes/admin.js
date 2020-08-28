@@ -1,45 +1,72 @@
 const express = require('express');
 const http = require('http');
-const mongoose = require('mongoose');
-const admin = express(); 
 const Item = require('../models/itemSchema');
 const { send } = require('process');
-const Admin = express.Router();
+const admin = express(); 
+const adminJob = express.Router();
 
 //still working on it. Will update soon
 
-admin.get('/',(req,res) =>
+adminJob.get('/',(req,res) =>
 {
     res.send("Welocme Admin"); //to test if app pass to admin
 });
 
-admin.get('/items',async (req,res) =>
-{
-    let items = await Item.find();
-    res.send(items);
+adminJob.get('/items',async (req,res) =>
+{   
+    try
+    {
+        let items = await Item.find();
+        res.send(items);
+    }
+    catch(e)
+    {
+        return res.status(200).send(e.message);
+    }
+    
 });
 
-admin.get('/items/:itemId',(req,res) =>
+adminJob.get('/items/:itemId',(req,res) =>
 {
     //required code to get a perameter value from the list
 });
 
 
-admin.post('/items',(req,res) =>
+adminJob.post('/items', async (req,res) =>
 {   
-    //required code to insert new entity
+    try
+    {
+        let itemToDb = new Item
+        ({
+            itemCode : req.body.itemCode,
+            itemName : req.body.itemName,
+            author   : req.body.author,
+            itemDescription : req.body.itemDescription,
+            imgUrl   : req.body.imgUrl,
+            itemQty  : req.body.itemQty,
+            itemPrice: req.body.itemPrice, 
+            Currencytype: req.body.Currencytype,
+            likeCount : req.body.likeCount
+        });
+        itemToDb = await itemToDb.save();
+        res.send(itemToDb);
+    }
+    catch(e)
+    {
+        return res.status(200).send(e.message);
+    }
 });
 
 
-admin.put('/items/:itemId',(req,res) =>
+adminJob.put('/items/:itemId',(req,res) =>
 {
     //required code for the update of an entitiy
 });
 
 
-admin.delete('/items/:itemId',(req,res) =>
+adminJob.delete('/items/:itemId',(req,res) =>
 {
     //required code for the deletion of an Item
 });
 
-module.exports = admin;
+module.exports = adminJob;
