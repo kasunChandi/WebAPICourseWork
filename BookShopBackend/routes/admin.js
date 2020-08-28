@@ -34,6 +34,10 @@ adminJob.get('/items/:itemId',(req,res) =>
 
 adminJob.post('/items', async (req,res) =>
 {   
+    if(!req.body.itemName)
+    {
+        res.status(400).send("Make sure to fill all the requirements");
+    }
     try
     {
         let itemToDb = new Item
