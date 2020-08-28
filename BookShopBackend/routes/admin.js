@@ -1,48 +1,72 @@
 const express = require('express');
 const http = require('http');
-const mongoose = require('mongoose');
-const admin = express();  // check on it. not sure if this is correct. should it be router?
-const item = require('../models/itemSchema');
-const PORT = 5000;
+const Item = require('../models/itemSchema');
+const { send } = require('process');
+const admin = express(); 
+const adminJob = express.Router();
 
 //still working on it. Will update soon
 
-mongoose
-.connect("mongodb://localhost/LuminexBookShopDB",{useNewUrlParser:true , useUnifiedTopology: true})
-.then(()=>console.log("*** Connected to the Database Successfully ***"))
-.catch(err=> console.log("!! connection error !!", err));
-
-//check what are the admin duties 
-
-admin.get('/admin/books/',(req,res) =>
+adminJob.get('/',(req,res) =>
 {
-    //required code to get the books details
-    //need to get the items from the model
+    res.send("Welocme Admin"); //to test if app pass to admin
 });
-admin.get('/admin/books/:itemId',(req,res) =>
+
+adminJob.get('/items',async (req,res) =>
+{   
+    try
+    {
+        let items = await Item.find();
+        res.send(items);
+    }
+    catch(e)
+    {
+        return res.status(200).send(e.message);
+    }
+    
+});
+
+adminJob.get('/items/:itemId',(req,res) =>
 {
     //required code to get a perameter value from the list
 });
 
 
-admin.post('admin/books/',(req,res) =>
-{
-    //required code to insert new entity
+adminJob.post('/items', async (req,res) =>
+{   
+    try
+    {
+        let itemToDb = new Item
+        ({
+            itemCode : req.body.itemCode,
+            itemName : req.body.itemName,
+            author   : req.body.author,
+            itemDescription : req.body.itemDescription,
+            imgUrl   : req.body.imgUrl,
+            itemQty  : req.body.itemQty,
+            itemPrice: req.body.itemPrice, 
+            Currencytype: req.body.Currencytype,
+            likeCount : req.body.likeCount
+        });
+        itemToDb = await itemToDb.save();
+        res.send(itemToDb);
+    }
+    catch(e)
+    {
+        return res.status(200).send(e.message);
+    }
 });
 
 
-admin.put('admin/books/:itemId',(req,res) =>
+adminJob.put('/items/:itemId',(req,res) =>
 {
     //required code for the update of an entitiy
 });
 
 
-admin.delete('admin/books/:itemId',(req,res) =>
+adminJob.delete('/items/:itemId',(req,res) =>
 {
     //required code for the deletion of an Item
 });
 
-admin.listen(PORT,function()
-{
-    console.log("Listening in port : " +PORT);
-});
+module.exports = adminJob;
