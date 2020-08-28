@@ -18,16 +18,6 @@ router.get('/:itemid', async (req, res) => {
     res.send(book);
 });
 
-// router.get('/:itemname', async (req, res) => {
-//     let book = await Book.findById(req.params.itemName);
-
-//     if (!book) {
-//         res.status(404).send("The given book does not exist on our server");
-//     }
-
-//     res.send(book);
-// });
-
 router.put('/:itemid', async (req, res) => {
     let book = await Book.findOneAndUpdate(
         { _id: req.params.itemid },
