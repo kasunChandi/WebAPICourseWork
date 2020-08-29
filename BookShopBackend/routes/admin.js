@@ -28,7 +28,7 @@ adminJob.get('/items', async (req,res) =>
 
 adminJob.get('/items/:itemCode', async (req,res) =>
 {
-    let item = await Item.findById(req.params.itemCode);//need to find what is the value need to be pass to find the item from the list
+    let item = await Item.find(req.params.itemCode);//need to find what is the value need to be pass to find the item from the list
 
     if(!item)
     {
