@@ -10,8 +10,8 @@ log = (req, res, next) => {
   console.log(logArray);
   next();
 
-  var fs = require("fs");
-  fs.appendFileSync("log_file.txt", log +"\n");
+  // var fs = require("fs");
+  // fs.appendFileSync("log_file.txt", log +"\n");
 };
 
 module.exports = log;
