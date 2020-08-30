@@ -7,7 +7,9 @@ import Home from './components/Items';
 import Navbar from './components/Navbar';
 import ViewDetails from './components/viewDetails';
 import Search from './components/search';
+import Checkout  from './components/checkout';
 import Auth0ProviderWithHistory  from './auth0histroy';
+import ProtectedRoute from './components/protectedRout';
 import './styles.css'
 
 
@@ -15,10 +17,12 @@ ReactDom.render(
 <BrowserRouter>
  <Auth0ProviderWithHistory>
 <Navbar/>
+
 <Search/>
 <Route exact path="/" component={Home}/>
 <Route exact path ="/viewDetails/:id" component= {ViewDetails}/>
 <Route exact path="/aboutus" component={Aboutus}/> 
+<ProtectedRoute exact path="/checkout" component={Checkout}/>
 </Auth0ProviderWithHistory>
 </BrowserRouter>,
 document.getElementById("root")
