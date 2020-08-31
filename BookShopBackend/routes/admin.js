@@ -12,11 +12,11 @@ adminJob.get('/',(req,res) =>
     res.send("Welocme Admin"); //to test if app pass to admin
 });
 
-adminJob.get('/items',async (req,res) =>
+adminJob.get('/items', async (req,res) =>
 {   
     try
     {
-        let items = await Item.find();
+        let items = await Item.find().sort({itemCode : 'asc'});
         res.send(items);
     }
     catch(e)
@@ -26,14 +26,24 @@ adminJob.get('/items',async (req,res) =>
     
 });
 
-adminJob.get('/items/:itemId',(req,res) =>
+adminJob.get('/items/:itemCode', async (req,res) =>
 {
-    //required code to get a perameter value from the list
+    let item = await Item.find(req.params.itemCode);//need to find what is the value need to be pass to find the item from the list
+
+    if(!item)
+    {
+        res.status(404).send("given Code does not Exist in the Server");
+    }
+    res.send(item);
 });
 
 
 adminJob.post('/items', async (req,res) =>
 {   
+    if(!req.body.itemName)
+    {
+        res.status(400).send("Make sure to fill all the requirements");
+    }
     try
     {
         let itemToDb = new Item
