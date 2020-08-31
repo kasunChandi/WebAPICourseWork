@@ -19,6 +19,7 @@ class Navbar extends Component {
           <Link className="btn btn-secondary" to="/aboutus">About Us</Link>
          
         </nav>
+        {" "}
         <div className="row top-section">
           <div className="col-md-10">
             <br />
@@ -42,7 +43,9 @@ class Navbar extends Component {
                <span >
                  <p className="mb-0">Total</p>
                  <h6>LKR 2000.00</h6>
+                 <Link className="btn btn-danger" to='/checkout'>Checkout</Link>
                </span>
+
               </div>  
            </div>
          </div>
