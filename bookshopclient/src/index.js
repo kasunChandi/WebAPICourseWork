@@ -12,6 +12,8 @@ import Checkout  from './components/checkout';
 import Auth0ProviderWithHistory  from './auth0histroy';
 import ProtectedRoute from './components/protectedRout';
 import './styles.css'
+import './styleforbillingform.css'
+import BillingForm from './components/BillingForm';
 
 
 ReactDom.render(
@@ -24,6 +26,7 @@ ReactDom.render(
 <Route exact path ="/viewDetails/:id" component= {ViewDetails}/>
 <Route exact path ="/Cart" component= {Cart}/>
 <Route exact path="/aboutus" component={Aboutus}/> 
+<Route exact path="/billingform" component={BillingForm}/> 
 <ProtectedRoute exact path="/checkout" component={Checkout}/>
 </Auth0ProviderWithHistory>
 </BrowserRouter>,
