@@ -3,9 +3,19 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 class ItemSelect extends Component {
-  state = {
-    book: {},
-  };
+   
+     state = {
+        book: {},
+      };
+
+   componentWillMount(){
+     this.itemData = JSON.parse(localStorage.getItem('item'));
+   }
+   componentWillUpdate(nextProps, nextState){
+     localStorage.setItem('item', JSON.stringify(nextState));
+   }
+
+
   render() {
 
     return (
@@ -46,7 +56,6 @@ class ItemSelect extends Component {
             </tr>
             </tbody>
         </table>
-
     );
   }
 
