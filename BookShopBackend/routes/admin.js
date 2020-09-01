@@ -7,12 +7,12 @@ const adminJob = express.Router();
 
 //still working on it. Will update soon
 
-adminJob.get('/',(req,res) =>
+adminJob.get('/',(req,res) => //welcome Admin
 {
-    res.send("Welocme Admin"); //to test if app pass to admin
+    res.send("Welocme Admin"); 
 });
 
-adminJob.get('/items', async (req,res) =>
+adminJob.get('/items', async (req,res) =>  // getting all available items
 {   
     try
     {
@@ -26,9 +26,9 @@ adminJob.get('/items', async (req,res) =>
     
 });
 
-adminJob.get('/items/:itemCode', async (req,res) =>
+adminJob.get('/items/:itemId', async (req,res) =>  // getting specific item
 {
-    let item = await Item.find(req.params.itemCode);//need to find what is the value need to be pass to find the item from the list
+    let item = await Item.findById(req.params.itemId);
 
     if(!item)
     {
@@ -68,15 +68,27 @@ adminJob.post('/items', async (req,res) =>
 });
 
 
-adminJob.put('/items/:itemId',(req,res) =>
+adminJob.put('/items/:itemId', async (req,res) =>
 {
-    //required code for the update of an entitiy
+    let item = await Item.findByIdAndUpdate (
+        { _id : req.params.itemId },
+        { $set : { itemName : req.body.itemName }},
+        { new : true, useFindAndModify : false }
+    )
+    res.send(item);
 });
 
 
-adminJob.delete('/items/:itemId',(req,res) =>
+adminJob.delete('/items/:itemId', async (req,res) =>
 {
-    //required code for the deletion of an Item
+    let item = await Item.findOneAndDelete({_id : req.params.itemId})
+
+    if(!item)
+    {
+        res.status(404).send("The ID is not Exist in the Server");
+    }
+    res.send(item); 
+
 });
 
 module.exports = adminJob;
