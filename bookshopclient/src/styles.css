@@ -24,3 +24,24 @@
 .cart-img{
     width: 5rem;
 }
+
+.item-tbl{
+    width: 100%;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.item-tbl thead tr{
+    font-weight: 500;
+}
+
+.item-tbl tr{
+    border-bottom: 1px solid #ced4da ;
+}
+
+.item-data1{
+    display: grid;
+}
+.item-data1 img{
+  width: 4rem;
+}
