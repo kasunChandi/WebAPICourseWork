@@ -1,27 +1,71 @@
 import React, { Component } from "react";
 
-export default function ShoppingCart(cart){
-   return (
-      <>
-      <h1>Cart</h1>
-      <div className="products">
-      {   cart.map((product, indx) => (
-          <div className="card" style={{width:"18rem"}} key={indx}>
-          <img className="card-img-top" style={{width:"7rem"}} src={product.image} alt={product.name} />
-          <div className="card-body">
-            <h5 className="card-title">{product.name}</h5>
-            <h6>{product.author}</h6>
-            <h6>{product.cost}</h6>
+class cart extends Component{ 
+   render() {
+
+      return (
+        <div className="row">
+          <div className="col-md-9">
+             <table className="item-tbl">
+                <thead>
+                   <tr>
+                      <td>Item</td>
+                      <td>Price</td>
+                      <td>Qty</td>
+                      <td>Sub Total</td>
+                   </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td className="item-data1">
+                         Book 01
+                      </td>
+                      <td>LKR 1500.00</td>
+                      <td>2</td>
+                      <td>LKR 3000.00</td>
+                      <td>
+                      <button className="btn btn-warning" >Recover</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Book 02</td>
+                      <td>LKR 1500.00</td>
+                      <td>2</td>
+                      <td>LKR 3000.00</td>
+                  </tr>
+                </tbody>
+             </table>
+          </div>
+          <div className="col-md-3">
+            <table>
+               <tbody>
+                  <tr>
+                     <td>Shopping Cart Summary</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Items</td>
+                     <td>2</td>
+                  </tr>
+                  <tr>
+                     <td>Discount (0%)</td>
+                     <td>LKR 0.00</td>
+                  </tr>
+                  <tr>
+                     <td>Total</td>
+                     <td>LKR 3000.00</td>
+                  </tr>
+               </tbody>
+            </table>
           </div>
          </div>
-        ))}
-    
-      </div>
-      </>
-   )
+      
+      );
+   }
    
 }
 
+export default cart;
 
 
 //   <div className="card cart-card">
