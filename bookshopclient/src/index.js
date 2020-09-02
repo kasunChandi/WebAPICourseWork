@@ -6,7 +6,7 @@ import Aboutus from './components/Aboutus';
 import Home from './components/Items';
 import Navbar from './components/Navbar';
 import ViewDetails from './components/viewDetails';
-import Cart from './components/Cart';
+import Cart from './components/CartItems';
 import Search from './components/search';
 import Checkout  from './components/checkout';
 import Auth0ProviderWithHistory  from './auth0histroy';
@@ -24,7 +24,7 @@ ReactDom.render(
 <Search/>
 <Route exact path="/" component={Home}/>
 <Route exact path ="/viewDetails/:id" component= {ViewDetails}/>
-<Route exact path ="/Cart" component= {Cart}/>
+<Route exact path ="/cart" component= {Cart}/>
 <Route exact path="/aboutus" component={Aboutus}/> 
 <Route exact path="/billingform" component={BillingForm}/> 
 <ProtectedRoute exact path="/checkout" component={Checkout}/>
