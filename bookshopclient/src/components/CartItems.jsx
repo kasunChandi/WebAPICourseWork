@@ -27,12 +27,12 @@ class CartItems extends Component {
                 ))}
               </tbody>
               <tbody>
-                 <tr>
-                     <td>Full Amount</td>
-                     <td></td>
-                     <td></td>
-                     <td>3000 LKR</td>
-                 </tr>
+                <tr>
+                  <td>Full Amount</td>
+                  <td></td>
+                  <td></td>
+                  <td>3000 LKR</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -75,7 +75,7 @@ class CartItems extends Component {
 
     let cartItems = data.map((cartItem) => {
       return {
-        //id: cartItem._id,
+        id: cartItem._id,
         itemCode: cartItem.itemCode,
         itemName: cartItem.itemName,
         itemQty: cartItem.itemQty,
