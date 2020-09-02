@@ -21,18 +21,14 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/:userid', async (req, res) => {
-    try{
-        let { title } = req.params.userid
-        let item = await cartItem.find({ title: {$eq: title}});
-
-        if(!item) {
-            res.status(404).send("There is no item added into the cart by given id");
+    var Query = { userid : req.params.userid}
+    cartItem.find(Query).exec((error,data) => {
+        if(error) {
+            return next (error)
+        } else {
+            res.json(data)
         }
-        res.send(item);
-    } catch (e) {
-        return res.status(500).send(e.message);
-    }
-    
+    })
 });
 
 module.exports = router;

@@ -26,7 +26,6 @@ class CartItems extends Component {
                   <CartItem key={cartItems.id} cartItems={cartItems} />
                 ))}
               </tbody>
-              <br/>
               <tbody>
                  <tr>
                      <td>Full Amount</td>
@@ -59,7 +58,7 @@ class CartItems extends Component {
               </tbody>
             </table>
           </div>
-        </div><br/>
+        </div>
         <div align="right">
           <button className="button">Checkout</button>
         </div>
@@ -76,7 +75,7 @@ class CartItems extends Component {
 
     let cartItems = data.map((cartItem) => {
       return {
-        id: cartItem._id,
+        //id: cartItem._id,
         itemCode: cartItem.itemCode,
         itemName: cartItem.itemName,
         itemQty: cartItem.itemQty,
