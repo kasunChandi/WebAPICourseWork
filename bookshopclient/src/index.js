@@ -14,6 +14,7 @@ import ProtectedRoute from './components/protectedRout';
 import './styles.css'
 import './styleforbillingform.css'
 import BillingForm from './components/BillingForm';
+import Footer from './components/Footer';
 
 
 ReactDom.render(
@@ -29,6 +30,8 @@ ReactDom.render(
 <Route exact path="/billingform" component={BillingForm}/> 
 <ProtectedRoute exact path="/checkout" component={Checkout}/>
 </Auth0ProviderWithHistory>
+<br/><br/>
+<Footer/>
 </BrowserRouter>,
 document.getElementById("root")
 
