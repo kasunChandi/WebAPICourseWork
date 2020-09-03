@@ -2,19 +2,18 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-class ItemSelect extends Component {
+class viewDetails extends Component {
    
-     state = {
+    state = {
         book: {},
-      };
+    };
 
-   componentWillMount(){
-     this.itemData = JSON.parse(localStorage.getItem('item'));
-   }
-   componentWillUpdate(nextProps, nextState){
-     localStorage.setItem('item', JSON.stringify(nextState));
-   }
-
+    // componentWillMount(){
+    //     this.itemData = JSON.parse(localStorage.getItem('item'));
+    // }
+    // componentWillUpdate(nextProps, nextState){
+    //     localStorage.setItem('item', JSON.stringify(nextState));
+    // }    
 
   render() {
 
@@ -49,7 +48,7 @@ class ItemSelect extends Component {
                     </div>  
                     
                     <div className="container" align="right">
-                        <button className="btn btn-success" >Add to cart</button>{" "}
+                        <button onClick={() => this.addToCart(this.state.book)} className="btn btn-success" >Add to cart</button>{" "}
                         <Link className="btn btn-secondary"   to="/">Go Back </Link>
                     </div>
                 </td>
@@ -67,6 +66,23 @@ class ItemSelect extends Component {
 
     this.setState({ book: data });
   }
+
+  async addToCart(Item) {
+
+    await axios.post('http://localhost:5000/api/home/cart/' , {
+        userid: '985300500V',
+        itemCode: Item.itemCode,
+        itemName: Item.itemName,
+        itemPrice: Item.itemPrice,
+    })
+    .then(response => {
+        console.log(response)
+    })
+    .catch(error => {
+        console.log(error.response)
+    });
+  }
+  
 }
 
-export default ItemSelect;
+export default viewDetails;

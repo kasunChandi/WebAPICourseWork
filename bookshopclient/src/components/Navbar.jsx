@@ -43,7 +43,7 @@ class Navbar extends Component {
                <span >
                  <p className="mb-0">Total</p>
                  <h6>LKR 2000.00</h6>
-                 <Link className="btn btn-danger" to='/checkout'>Checkout</Link>
+                 <Link className="btn btn-info" to='/cart'>Go to cart</Link>
                </span>
 
               </div>  
