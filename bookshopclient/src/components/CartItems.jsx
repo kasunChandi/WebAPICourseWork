@@ -23,7 +23,11 @@ class CartItems extends Component {
               </thead>
               <tbody>
                 {this.state.allItems.map((cartItems) => (
-                  <CartItem key={cartItems.id} cartItems={cartItems} />
+                  <CartItem 
+                    key={cartItems.id} 
+                    cartItems={cartItems} 
+                    onRemove={() => this.removeItem(cartItems.id)}
+                  />
                 ))}
               </tbody>
               <tbody>
@@ -65,6 +69,16 @@ class CartItems extends Component {
       </div>
     );
   }
+
+  async removeItem(itemtobedeleteid){
+    let newItems = this.state.allItems.filter(
+      (cartItems) => cartItems.id !== itemtobedeleteid
+    );
+    await axios.delete(`http://localhost:5000/api/home/cart/${itemtobedeleteid}`
+    );
+    this.setState({ allItems: newItems });
+  }
+
   async componentDidMount() {
     let userid = "985300500V";
 
