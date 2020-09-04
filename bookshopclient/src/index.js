@@ -25,9 +25,9 @@ ReactDom.render(
 <Search/>
 <Route exact path="/" component={Home}/>
 <Route exact path ="/viewDetails/:id" component= {ViewDetails}/>
-<Route exact path ="/cart" component= {Cart}/>
+<ProtectedRoute exact path ="/cart" component= {Cart}/>
 <Route exact path="/aboutus" component={Aboutus}/> 
-<Route exact path="/billingform" component={BillingForm}/> 
+<ProtectedRoute exact path="/billingform" component={BillingForm}/> 
 <ProtectedRoute exact path="/checkout" component={Checkout}/>
 </Auth0ProviderWithHistory>
 <br/><br/>

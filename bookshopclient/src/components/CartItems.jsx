@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import CartItem from "./CartItem";
+import { withAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 class CartItems extends Component {
   state = {
@@ -64,7 +66,7 @@ class CartItems extends Component {
           </div>
         </div>
         <div align="right">
-          <button className="button">Checkout</button>
+          <Link className="btn btn-info" to='/billingform'>Checkout</Link>
         </div>
       </div>
     );
@@ -80,7 +82,8 @@ class CartItems extends Component {
   }
 
   async componentDidMount() {
-    let userid = "985300500V";
+    const { isAuthenticated, user } = this.props.auth0;
+    let userid = user.sub;
 
     const { data } = await axios.get(
       `http://localhost:5000/api/home/cart/${userid}`
@@ -102,4 +105,4 @@ class CartItems extends Component {
   }
 }
 
-export default CartItems;
+export default withAuth0(CartItems);
