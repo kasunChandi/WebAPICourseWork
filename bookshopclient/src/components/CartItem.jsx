@@ -7,10 +7,12 @@ class cartItem extends Component {
       <tr>
         <td className="item-data1">{this.props.cartItems.itemName}</td>
         <td>{this.props.cartItems.itemPrice} {this.props.cartItems.Currencytype}</td>
-        <td>{this.props.cartItems.itemQty}</td>
+        <td>
+            {this.props.cartItems.itemQty}
+        </td>
         <td>{this.props.cartItems.itemPrice} {this.props.cartItems.Currencytype}</td>
         <td>
-          <button className="btn btn-warning">Remove</button>
+          <button className="btn btn-warning" onClick={this.props.onRemove}>Remove</button>
         </td>
       </tr>
     );
