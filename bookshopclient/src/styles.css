@@ -1,3 +1,24 @@
+.navbar {
+    background-color: #020c35;
+}
+
+.navbar .btn{
+    color: white;
+    background: transparent;
+    border: unset;
+    margin-left: 10px;
+}
+
+.navbar .btn:hover{
+    color: #17a2b8;
+}
+
+.navbar .btn:focus{
+    outline:unset !important;
+    box-shadow:unset !important;
+    color: #17a2b8;
+}
+
 .top-section{
    margin-right: 0px !important;
    margin-left: 0px !important;
@@ -6,7 +27,7 @@
 
 .cart-card{
     margin: 10px 0px;
-    height: 10rem;
+    height: 8rem;
     border: 2px solid #0061a1;
 }
 
@@ -22,17 +43,19 @@
 }
 
 .cart-img{
-    width: 5rem;
+    width: 3rem;
 }
 
 .item-tbl{
     width: 100%;
-    margin-left: 20px;
+    margin-bottom: 20px;
     font-size: 14px;
 }
 
 .item-tbl thead tr{
     font-weight: 500;
+    color: #020c35;
+    font-size: 16px;
 }
 
 .item-tbl tr{
@@ -56,8 +79,55 @@
     font-size: 16px;
   }
   footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     text-align: center;
-    padding: 3px;
-    background-color: #155580;
+    background-color: #020c35;
     color: white;
+    height: 50px;
   }
+  
+  .go-cart-btn{
+    height: 40px;
+    margin-right: 68px;
+    margin-top: 6px;
+}
+
+.logoApp img{
+    width: 9rem;
+}
+
+.logoApp span{
+    font-size: 27px;
+    font-weight: 700;
+    color: #020c35;
+    margin-left: 10px;
+}
+
+.btn-remove{
+    width: 55px;
+    height: 25px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 5px;
+    padding: 3px !important;
+}
+
+.items-container{
+    border:5px solid #020c3536;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.chcontainer{
+    border:5px solid #020c3536 !important;
+    padding: 30px;
+    border-radius: 10px !important;
+    background-color: unset !important;
+}
+
+.custom-color{
+    color: #1a308a;
+}

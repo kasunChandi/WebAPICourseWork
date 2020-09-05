@@ -26,8 +26,8 @@ class BillingForm extends Component {
                 <div className="chcol-75">
                     <div className="chcontainer">
                         <div className="chrow">
-                            <div className="chcol-50">
-                                <h3>Billing Address</h3>
+                            <div className="chcol-50 mt-3">
+                                <h4 className="custom-color">Billing Address</h4>
                                 <label><i className="fa fa-user"></i> Full Name</label>
                                 <input type="text" id="fname" name="firstname" placeholder="John M. Doe" value={user.name}/>
                                 <label><i className="fa fa-envelope"></i> Email</label>
@@ -49,34 +49,34 @@ class BillingForm extends Component {
                                 </div>
                             </div>       
                         </div>
-                    </div>
-                </div>   
-
-                <div className="chcol-25">
-                    <div className="chcontainer">
-                        <h4>Cart
-                            <span className="chprice" style={{color:"black"}}>
+                    
+                    <div>
+                        <h4 className="custom-color">Items
+                            <span className="chprice custom-color" style={{color:"black"}}>
                                 <i className="fa fa-shopping-cart"></i>
-                                <b>{this.state. countItem}</b>
+                                <b className="custom-color">{this.state. countItem}</b>
                             </span>
                         </h4>
                         <span>
-                        {this.state.allItems.map((cartItems) => (
-                  <BillingData 
-                    key={cartItems.id} 
-                    cartItems={cartItems} 
-                    onRemove={() => this.removeItem(cartItems.id)}
-                    
-                  />
-                ))}
+                         {this.state.allItems.map((cartItems) => (
+                            <BillingData 
+                             key={cartItems.id} 
+                             cartItems={cartItems} 
+                             onRemove={() => this.removeItem(cartItems.id)}
+                             />
+                          ))}
                         </span>
-    <p>Total <span className="chprice" style={{color:"black"}}><b>{this.state.totalPrice} LKR</b></span></p>
+                       <p>Total <span className="chprice " style={{color:"black"}}><h5 className="custom-color txt-bold">{this.state.totalPrice} LKR</h5></span></p>
+                       <div align="right">
+                          <button onClick={() => this.userOrder()} className="btn btn-success w-100" >Continue to checkout</button>{" "}
+                       </div>
+                      
                     </div>
                 </div>
-                <button onClick={() => this.userOrder()} className="btn btn-success" >Continue to checkout</button>{" "}
+               
             </div>
         </div>
-
+        </div>
     );
   }
 
