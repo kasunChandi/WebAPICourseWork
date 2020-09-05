@@ -72,7 +72,7 @@ adminJob.put('/items/:itemId', async (req,res) =>
 {
     let item = await Item.findByIdAndUpdate (
         { _id : req.params.itemId },
-        { $set : { itemName : req.body.itemName }},
+        { $set : { itemQty : req.body.itemQty, itemPrice :req.body.itemPrice }},
         { new : true, useFindAndModify : false }
     )
     res.send(item);
