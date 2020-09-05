@@ -36,15 +36,9 @@ class Navbar extends Component {
               <div className="card-body">
                <h5 className="card-title cart-title">Shopping Cart</h5>
                <span className="d-flex">
-                   <h6 className="item-no">2 Items</h6>
+               <Link className="btn btn-info"  style={{height:"40px"}} to='/cart'>Go to cart</Link>
                    <img className="cart-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaiZuRiYLdTP2Faf5gv2zQvfGxaLU-_9d_-g&usqp=CAU"/>
                 </span>
-                <hr />
-               <span >
-                 <p className="mb-0">Total</p>
-                 <h6>LKR 2000.00</h6>
-                 <Link className="btn btn-info" to='/cart'>Go to cart</Link>
-               </span>
 
               </div>  
            </div>
