@@ -1,16 +1,25 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
+import BillingData from "./BillingData";
+
 
 
 class BillingForm extends Component {
   state = {
     // user: {},
+    allItems:[],
+    totalPrice: 0,
+    countItem:1
+   
   };
-
 
   render() {
     const { isAuthenticated, user } = this.props.auth0;
+    console.log(
+        this.state.allItems.map((item) => {return item.itemPrice})
+    )
+
     return (
         <div id="center">
             <div className="cgrow">
@@ -27,7 +36,7 @@ class BillingForm extends Component {
                                 <input type="text" id="address" name="address" placeholder="542 W. 15th Street"  />
                                 <label><i className="fa fa-institution"></i> City</label>
                                 <input type="text" id="city" name="city" placeholder="New York" />
-
+                          
                                 <div className="chrow">
                                     <div className="chcol-50">
                                         <label>State</label>
@@ -43,22 +52,27 @@ class BillingForm extends Component {
                     </div>
                 </div>   
 
-                {/* <div className="chcol-25">
+                <div className="chcol-25">
                     <div className="chcontainer">
                         <h4>Cart
                             <span className="chprice" style={{color:"black"}}>
                                 <i className="fa fa-shopping-cart"></i>
-                                <b>4</b>
+                                <b>{this.state. countItem}</b>
                             </span>
                         </h4>
-                        <p><a href="#">Product 1</a> <span className="chprice">$15</span></p>
-                        <p><a href="#">Product 2</a> <span className="chprice">$5</span></p>
-                        <p><a href="#">Product 3</a> <span className="chprice">$8</span></p>
-                        <p><a href="#">Product 4</a> <span className="chprice">$2</span></p>
-                        <p>Total <span className="chprice" style={{color:"black"}}><b>$30</b></span></p>
+                        <span>
+                        {this.state.allItems.map((cartItems) => (
+                  <BillingData 
+                    key={cartItems.id} 
+                    cartItems={cartItems} 
+                    onRemove={() => this.removeItem(cartItems.id)}
+                    
+                  />
+                ))}
+                        </span>
+    <p>Total <span className="chprice" style={{color:"black"}}><b>{this.state.totalPrice} LKR</b></span></p>
                     </div>
-                </div> */}
-                <input type="submit" value="Continue to checkout" className="chbtn"></input>
+                </div>
                 <button onClick={() => this.userOrder()} className="btn btn-success" >Continue to checkout</button>{" "}
             </div>
         </div>
@@ -89,6 +103,16 @@ class BillingForm extends Component {
     });
 
     this.setState({ allItems: cartItems });
+    let total = 0;
+    let count =0;
+    this.state.allItems.forEach(item => {
+        total += item.itemPrice
+        count=count+1;
+    });
+    this.setState({totalPrice: total})
+    this.setState({countItem:count})
+ 
+    console.log("Total" + this.state.totalPrice)
   }
 
   async userOrder() {
@@ -102,19 +126,14 @@ class BillingForm extends Component {
     console.log(fName,email,address,city,state,zip);
     const { isAuthenticated, user } = this.props.auth0;
     await axios.post('http://localhost:5000/api/home/order/' , {
-        userid: '985300500V',
-            // userName:User.userName,
-            // userEmail: User.userEmail,
-            // userAddress: User.userAddress,
-            // userCity: User.userCity,
-            // userState: User.userState,
-            // userZip: User.userZip,
+            userid: '985300500V',         
             userName:user.name,
             userEmail:user.email,
             userAddress: address,
             userCity: city,
             userState: state,
-            userZip: zip
+            userZip: zip,
+
     })
     .then(response => {
         console.log(response)
