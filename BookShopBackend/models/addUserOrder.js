@@ -36,7 +36,8 @@ const userSchema = new mongoose.Schema({
     maxlength: 100,
     minlength: 4,
     required: true
-    }
+    },
+    userOrderItems: []
 
 });
 
