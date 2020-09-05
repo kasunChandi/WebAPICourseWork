@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
 import BillingData from "./BillingData";
+import CartItems from "./CartItems";
 
 
 
@@ -29,9 +30,9 @@ class BillingForm extends Component {
                             <div className="chcol-50 mt-3">
                                 <h4 className="custom-color">Billing Address</h4>
                                 <label><i className="fa fa-user"></i> Full Name</label>
-                                <input type="text" id="fname" name="firstname" placeholder="John M. Doe" value={user.name}/>
+                                <input type="text" id="fname" name="firstname" value={user.name}/>
                                 <label><i className="fa fa-envelope"></i> Email</label>
-                                <input type="text" id="email" name="email" placeholder="john@example.com"  value={user.email} />
+                                <input type="text" id="email" name="email" value={user.email} />
                                 <label><i className="fa fa-address-card-o"></i> Address</label>
                                 <input type="text" id="address" name="address" placeholder="542 W. 15th Street"  />
                                 <label><i className="fa fa-institution"></i> City</label>
@@ -115,7 +116,8 @@ class BillingForm extends Component {
     console.log("Total" + this.state.totalPrice)
   }
 
-  async userOrder() {
+  async userOrder(order) {
+    
     var fName = document.getElementById('fname').value;
     var email = document.getElementById('email').value;
     var address = document.getElementById('address').value;
@@ -133,7 +135,7 @@ class BillingForm extends Component {
             userCity: city,
             userState: state,
             userZip: zip,
-
+            userOrder: order
     })
     .then(response => {
         console.log(response)
