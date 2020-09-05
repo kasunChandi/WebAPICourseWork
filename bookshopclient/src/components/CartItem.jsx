@@ -12,7 +12,7 @@ class cartItem extends Component {
         </td>
         <td>{this.props.cartItems.itemPrice} {this.props.cartItems.Currencytype}</td>
         <td>
-          <button className="btn btn-warning" onClick={this.props.onRemove}>Remove</button>
+          <button className="btn btn-warning btn-remove" onClick={this.props.onRemove}>Remove</button>
         </td>
       </tr>
     );

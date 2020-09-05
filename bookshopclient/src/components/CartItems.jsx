@@ -11,9 +11,8 @@ class CartItems extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container items-container">
         <div className="row">
-          <div className="col-md-9">
             <table className="item-tbl">
               <thead>
                 <tr>
@@ -21,6 +20,7 @@ class CartItems extends Component {
                   <td>Price</td>
                   <td>Quantity</td>
                   <td>Sub Total</td>
+                  <td></td>
                 </tr>
               </thead>
               <tbody>
@@ -38,32 +38,10 @@ class CartItems extends Component {
                   <td></td>
                   <td></td>
                   <td>3000 LKR</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="col-md-3">
-            <table>
-              <tbody>
-                <tr>
-                  <td>Shopping Cart Summary</td>
                   <td></td>
                 </tr>
-                <tr>
-                  <td>Items</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <td>Discount (0%)</td>
-                  <td>LKR 0.00</td>
-                </tr>
-                <tr>
-                  <td>Total</td>
-                  <td>LKR 3000.00</td>
-                </tr>
               </tbody>
             </table>
-          </div>
         </div>
         <div align="right">
           <Link className="btn btn-info" to='/billingform'>Checkout</Link>
