@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "bootstrap/dist/css/bootstrap.css"
-import Admin from './components/Admin';
+import ItemList from './components/ItemList';
 
 
-ReactDOM.render(<Admin />,document.getElementById('root'));
+ReactDOM.render(<ItemList />,document.getElementById('root'));
