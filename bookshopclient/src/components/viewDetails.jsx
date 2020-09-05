@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { withAuth0 } from "@auth0/auth0-react";
+
 
 class viewDetails extends Component {
    
@@ -16,7 +18,7 @@ class viewDetails extends Component {
     // }    
 
   render() {
-
+    
     return (
         <table align="center">
             <tbody>
@@ -63,14 +65,24 @@ class viewDetails extends Component {
       `http://localhost:5000/api/home/${this.props.match.params.id}`
     );
     //console.log(data.itemCode);
-
+    
     this.setState({ book: data });
+   
   }
 
   async addToCart(Item) {
+    const { isAuthenticated, user } = this.props.auth0;
+    if(!isAuthenticated){
+        alert("You need to login to system");
+
+    }
+else{
+    console.log(user);
+   // console.log(user.sub);
+   // console.log(isAuthenticated);
 
     await axios.post('http://localhost:5000/api/home/cart/' , {
-        userid: '985300500V',
+        userid: user.sub,
         itemCode: Item.itemCode,
         itemName: Item.itemName,
         itemPrice: Item.itemPrice,
@@ -82,7 +94,7 @@ class viewDetails extends Component {
         console.log(error.response)
     });
   }
-  
+}
 }
 
-export default viewDetails;
+export default withAuth0(viewDetails);
