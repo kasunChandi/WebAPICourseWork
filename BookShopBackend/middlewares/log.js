@@ -7,7 +7,7 @@ log = (req, res, next) => {
   let log = currentTime + " " + method + " " + url;
   let logArray = [];
   logArray.push(log);
-  console.log(logArray);
+  //console.log(logArray);
   next();
 
   // var fs = require("fs");
