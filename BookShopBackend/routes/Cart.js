@@ -31,4 +31,14 @@ router.get('/:userid', async (req, res) => {
     })
 });
 
+router.delete('/:cartitemid', async (req, res) => {
+    try{
+        let item = await cartItem.findOneAndDelete({_id: req.params.cartitemid});
+        res.send(item);
+    } catch(e) {
+        return res.status(500).send(e.message);
+    }
+    
+})
+
 module.exports = router;

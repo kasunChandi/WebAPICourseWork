@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import CartItem from "./CartItem";
-import BillingForm from "./BillingForm";
+import { withAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 
 class CartItems extends Component {
@@ -25,7 +25,11 @@ class CartItems extends Component {
               </thead>
               <tbody>
                 {this.state.allItems.map((cartItems) => (
-                  <CartItem key={cartItems.id} cartItems={cartItems} />
+                  <CartItem 
+                    key={cartItems.id} 
+                    cartItems={cartItems} 
+                    onRemove={() => this.removeItem(cartItems.id)}
+                  />
                 ))}
               </tbody>
               <tbody>
@@ -62,15 +66,24 @@ class CartItems extends Component {
           </div>
         </div>
         <div align="right">
-          <Link className="btn btn-info" to='/billingform'>
-            Checkout
-            </Link>
+          <Link className="btn btn-info" to='/billingform'>Checkout</Link>
         </div>
       </div>
     );
   }
+
+  async removeItem(itemtobedeleteid){
+    let newItems = this.state.allItems.filter(
+      (cartItems) => cartItems.id !== itemtobedeleteid
+    );
+    await axios.delete(`http://localhost:5000/api/home/cart/${itemtobedeleteid}`
+    );
+    this.setState({ allItems: newItems });
+  }
+
   async componentDidMount() {
-    let userid = "985300500V";
+    const { isAuthenticated, user } = this.props.auth0;
+    let userid = user.sub;
 
     const { data } = await axios.get(
       `http://localhost:5000/api/home/cart/${userid}`
@@ -92,4 +105,4 @@ class CartItems extends Component {
   }
 }
 
-export default CartItems;
+export default withAuth0(CartItems);
