@@ -33,7 +33,12 @@ class ItemList extends Component
             let {data} = await axios.get("http://localhost:5000/api/admin/items");
             console.log(data);
 
-            data.map
+            data.map(book => {
+
+                return {
+                    // set values which are comming from API 
+                }
+             })
         }
 }
 export default ItemList;
