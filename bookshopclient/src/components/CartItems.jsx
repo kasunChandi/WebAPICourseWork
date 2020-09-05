@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import CartItem from "./CartItem";
+import BillingForm from "./BillingForm";
+import { Link } from "react-router-dom";
 
 class CartItems extends Component {
   state = {
@@ -60,7 +62,9 @@ class CartItems extends Component {
           </div>
         </div>
         <div align="right">
-          <button className="button">Checkout</button>
+          <Link className="btn btn-info" to='/billingform'>
+            Checkout
+            </Link>
         </div>
       </div>
     );

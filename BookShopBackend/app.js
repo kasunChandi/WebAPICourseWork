@@ -6,6 +6,7 @@ const admin = require('./routes/admin');
 const log = require('./middlewares/log');
 const adminJob = require('./routes/admin');
 const cart = require('./routes/Cart');
+const order = require('./routes/Order');
 const app = express();
 const PORT = 5000;
 
@@ -15,6 +16,7 @@ app.use(log);
 app.use('/api/home', home);
 app.use('/api/admin',adminJob);
 app.use('/api/home/cart', cart);
+app.use('/api/home/order',order);
 
 mongoose
 .connect("mongodb://localhost/LuminexBookShopDB",{useNewUrlParser:true , useUnifiedTopology: true})
