@@ -23,7 +23,7 @@ class Navbar extends Component {
         </nav>
         {" "}
         <div className="row top-section">
-          <div className="col-md-4">
+          <div className="col-md-2">
             <br />
             <div className="logoApp">
               <span><img
@@ -35,7 +35,7 @@ class Navbar extends Component {
             
           </div>
 
-          <div className="col-md-6"> 
+          <div className="col-md-8"> 
           <ImageSlider/>
           </div>
 
@@ -43,12 +43,12 @@ class Navbar extends Component {
 
              <div className="card cart-card">
               <div className="card-body">
-               <h5 className="card-title cart-title">Shopping Cart</h5>
+               
                <span className="d-flex">
-               <Link className="btn btn-dark go-cart-btn" to='/cart'>Go to cart</Link>
+               <h5 className="card-title cart-title">Shopping Cart</h5>
                    <img className="cart-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaiZuRiYLdTP2Faf5gv2zQvfGxaLU-_9d_-g&usqp=CAU"/>
                 </span>
-
+                <Link className="btn btn-dark go-cart-btn" to='/cart'>Go To Cart</Link>
               </div>  
            </div>
          </div>
