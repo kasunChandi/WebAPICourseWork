@@ -12,9 +12,9 @@ class ItemList extends Component
     {
         return (
             <div className="container">
-            <div className="col">
+            <div className="row">
                {this.state.allBooks.map((book) => (
-                   <div className="row" key= {book.id}>
+                   <div className="col" key= {book.id}>
                        <Admin key={book.id} book = {book} />
                    </div>
                ))}   
