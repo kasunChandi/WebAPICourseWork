@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 class CartItems extends Component {
   state = {
     allItems: [],
+    totalPrice: 0
   };
 
   render() {
@@ -37,7 +38,7 @@ class CartItems extends Component {
                   <td>Full Amount</td>
                   <td></td>
                   <td></td>
-                  <td>3000 LKR</td>
+                  <td>{this.state.totalPrice} LKR</td>
                   <td></td>
                 </tr>
               </tbody>
@@ -80,6 +81,13 @@ class CartItems extends Component {
     });
 
     this.setState({ allItems: cartItems });
+    let total = 0;
+    let count =0;
+    this.state.allItems.forEach(item => {
+        total += item.itemPrice
+        count=count+1;
+    });
+    this.setState({totalPrice: total})
   }
 }
 
