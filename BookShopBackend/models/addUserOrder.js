@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
         minlength: 4,
         required: true
     },
+    userCity:{
+        type: String,
+        maxlength: 100,
+    },
     userState:{
         type: String,
         maxlength: 100,

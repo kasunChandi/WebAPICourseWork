@@ -17,7 +17,7 @@ class BillingForm extends Component {
   };
 
   render() {
-    const { isAuthenticated, user } = this.props.auth0;
+    const {  user } = this.props.auth0;
     console.log(
         this.state.allItems.map((item) => {return item.itemPrice})
     )
@@ -56,7 +56,7 @@ class BillingForm extends Component {
                         <h4 className="custom-color">Items
                             <span className="chprice custom-color" style={{color:"black"}}>
                                 <i className="fa fa-shopping-cart"></i>
-                                <b className="custom-color">{this.state. countItem}</b>
+                                <b className="custom-color">{this.state.countItem}</b>
                             </span>
                         </h4>
                         <span>
