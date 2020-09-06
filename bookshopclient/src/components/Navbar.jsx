@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthNav from "./authNav";
 import Register from "./signupButton";
+import ImageSlider from "./imageSlider";
+import icon from "../Assests/icon.jpg";
 
 class Navbar extends Component {
   state = {};
@@ -21,16 +23,20 @@ class Navbar extends Component {
         </nav>
         {" "}
         <div className="row top-section">
-          <div className="col-md-10">
+          <div className="col-md-4">
             <br />
             <div className="logoApp">
               <span><img
-              src="https://i.pinimg.com/236x/a9/ff/02/a9ff027115ed0ce7922b9f29c4a8d88a--logo-bookstore-book-logo-design.jpg"
+              src={icon}
               alt="..."/>
               </span>
               <span> Luminex Book Shop</span>
              </div>
             
+          </div>
+
+          <div className="col-md-6"> 
+          <ImageSlider/>
           </div>
 
           <div className="col-md-2">
