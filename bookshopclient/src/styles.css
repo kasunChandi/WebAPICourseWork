@@ -26,8 +26,8 @@
 }
 
 .cart-card{
-    margin: 10px 0px;
-    height: 8rem;
+    margin: 24px 0px;
+    height: 201px;
     border: 2px solid #0061a1;
 }
 
@@ -35,6 +35,7 @@
     text-align: center;
     font-weight: 700;
     color: #0061a1;
+    margin: 18px;
 }
 
 .item-no{
@@ -43,7 +44,7 @@
 }
 
 .cart-img{
-    width: 3rem;
+    width: 5rem;
 }
 
 .item-tbl{
@@ -91,19 +92,13 @@
   
   .go-cart-btn{
     height: 40px;
-    margin-right: 68px;
-    margin-top: 6px;
+    height: 40px;
+    width: 100%;
+    margin-top: 18px;
 }
 
 .logoApp img{
-    width: 9rem;
-}
-
-.logoApp span{
-    font-size: 27px;
-    font-weight: 700;
-    color: #020c35;
-    margin-left: 10px;
+    width: 92%;
 }
 
 .btn-remove{
