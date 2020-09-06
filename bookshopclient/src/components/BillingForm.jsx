@@ -69,7 +69,7 @@ class BillingForm extends Component {
                         </span>
                        <p>Total <span className="chprice " style={{color:"black"}}><h5 className="custom-color txt-bold">{this.state.totalPrice} LKR</h5></span></p>
                        <div align="right">
-                          <button onClick={() => this.userOrder()} className="btn btn-success w-100" >Continue to checkout</button>{" "}
+                          <button onClick={() => this.userOrder(this.state.allItems)} className="btn btn-success w-100" >Continue to checkout</button>{" "}
                        </div>
                       
                     </div>
@@ -126,6 +126,7 @@ class BillingForm extends Component {
     var zip = document.getElementById('zip').value;
 
     console.log(fName,email,address,city,state,zip);
+    console.log(order);
     const { isAuthenticated, user } = this.props.auth0;
     await axios.post('http://localhost:5000/api/home/order/' , {
             userid: '985300500V',         

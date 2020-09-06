@@ -76,10 +76,10 @@ class viewDetails extends Component {
         alert("You need to login to system");
 
     }
-else{
-    console.log(user);
-   // console.log(user.sub);
-   // console.log(isAuthenticated);
+    else{
+        console.log(user);
+        // console.log(user.sub);
+        // console.log(isAuthenticated);
 
     await axios.post('http://localhost:5000/api/home/cart/' , {
         userid: user.sub,
