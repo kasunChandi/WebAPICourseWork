@@ -11,6 +11,7 @@ router.post('/', async (req, res) => {
             userName: req.body.userName,
             userEmail: req.body.userEmail,
             userAddress: req.body.userAddress,
+            userCity: req.body.userCity,
             userState: req.body.userState,
             userZip: req.body.userZip,
             userOrder: req.body.userOrder
@@ -32,7 +33,7 @@ router.post('/', async (req, res) => {
             from: 'lluminexbookshop96test@gmail.com',
             to: req.body.userEmail,
             subject: 'Your order detais',
-            text: `Thankyou for placing order through Luminex Book Shop custermer name and dilivery address are bellow , \n\n ${req.body.userName} \n ${req.body.userAddress} \n ${req.body.userZip}`
+            text: `Thankyou for placing order through Luminex Book Shop custermer name and dilivery address are bellow , \n\n ${req.body.userName} \n Address: ${req.body.userAddress} \n city: ${req.body.userCity}\n Discription: ${req.body.userOrder}\n\nThank You Come again...`
           };
     
           transporter.sendMail(mailOptions, function(error, info){
