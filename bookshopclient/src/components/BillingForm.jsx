@@ -3,6 +3,7 @@ import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
 import BillingData from "./BillingData";
 import CartItems from "./CartItems";
+import { Link } from "react-router-dom";
 
 
 
@@ -69,7 +70,7 @@ class BillingForm extends Component {
                         </span>
                        <p>Total <span className="chprice " style={{color:"black"}}><h5 className="custom-color txt-bold">{this.state.totalPrice} LKR</h5></span></p>
                        <div align="right">
-                          <button onClick={() => this.userOrder(this.state.allItems)} className="btn btn-success w-100" >Continue to checkout</button>{" "}
+                          <Link onClick={() => this.userOrder(this.state.allItems)} className="btn btn-success w-100" to ={"/"} >Continue to checkout</Link>{" "}
                        </div>
                       
                     </div>
@@ -128,8 +129,9 @@ class BillingForm extends Component {
     console.log(fName,email,address,city,state,zip);
     console.log(order);
     const { isAuthenticated, user } = this.props.auth0;
+    let userId = user.sub;
     await axios.post('http://localhost:5000/api/home/order/' , {
-            userid: '985300500V',         
+            userid: userId,         
             userName:user.name,
             userEmail:user.email,
             userAddress: address,
@@ -144,6 +146,16 @@ class BillingForm extends Component {
     .catch(error => {
         console.log(error.response)
     });
+
+    await axios.delete(`http://localhost:5000/api/home/order/${userId}`) 
+    .then(response => {
+      console.log(response)
+  })
+  .catch(error => {
+      console.log(error.response)
+  });
+
+
   }
   
 }
