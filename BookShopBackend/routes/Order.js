@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
             userAddress: req.body.userAddress,
             userState: req.body.userState,
             userZip: req.body.userZip,
-            userOrder: req.body.userOrderItems
+            userOrder: req.body.userOrder
         });
 
         userToBeAdded = await userToBeAdded.save();
