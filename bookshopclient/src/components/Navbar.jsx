@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AuthNav from "./authNav";
 import Register from "./signupButton";
 import ImageSlider from "./imageSlider";
-import icon from "../Assests/icon.jpg";
+import logo from "../Assests/Logo.png";
 
 class Navbar extends Component {
   state = {};
@@ -25,12 +25,9 @@ class Navbar extends Component {
         <div className="row top-section">
           <div className="col-md-2">
             <br />
-            <div className="logoApp">
-              <span><img
-              src={icon}
+            <div className="logoApp"><img
+              src={logo}
               alt="..."/>
-              </span>
-              <span> Luminex Book Shop</span>
              </div>
             
           </div>

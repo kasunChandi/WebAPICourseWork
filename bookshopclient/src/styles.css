@@ -98,14 +98,7 @@
 }
 
 .logoApp img{
-    width: 9rem;
-}
-
-.logoApp span{
-    font-size: 27px;
-    font-weight: 700;
-    color: #020c35;
-    margin-left: 10px;
+    width: 92%;
 }
 
 .btn-remove{
