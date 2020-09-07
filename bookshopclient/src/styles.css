@@ -126,3 +126,15 @@
 .custom-color{
     color: #1a308a;
 }
+
+.chart-view{
+    display: grid;
+    margin-bottom: 20px;
+    text-align: -webkit-right;
+}
+
+.chart-view span{
+    font-weight: 700;
+    margin-right: 219px;
+}
+  

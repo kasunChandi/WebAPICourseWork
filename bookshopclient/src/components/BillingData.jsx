@@ -8,9 +8,9 @@ class BillingData extends Component {
         <table className="item-tbl">
          <tbody>
          <tr>
-          <td className="item-data1">{this.props.cartItems.itemName}</td>
-          <td> {this.props.cartItems.itemQty} </td>
-          <td className="text-right">{this.props.cartItems.itemPrice} {this.props.cartItems.Currencytype}</td>
+          <td className="item-data1" width="65%" >{this.props.cartItems.itemName}</td>
+          <td width="10%" className="text-center"> {this.props.cartItems.itemQty} </td>
+          <td className="text-right" width="15%">{this.props.cartItems.itemPrice} {this.props.cartItems.Currencytype}</td>
          </tr>
          </tbody>
         </table>
