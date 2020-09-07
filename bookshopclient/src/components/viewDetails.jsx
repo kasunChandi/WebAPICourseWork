@@ -50,7 +50,7 @@ class viewDetails extends Component {
                     </div>  
                     
                     <div className="container" align="right">
-                        <Link onClick={() => this.addToCart(this.state.book)} className="btn btn-success"  to="/">Add to cart</Link>{" "}
+                        <Link onClick={() => this.addToCart(this.state.book)} className="btn btn-success">Add to cart</Link>{" "}
                         <Link className="btn btn-secondary"   to="/">Go Back </Link>
                     </div>
                 </td>
