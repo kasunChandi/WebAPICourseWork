@@ -8,15 +8,29 @@ class NavBar extends Component
     render()
     {
         return(
-            <nav className="navbar navbar-dark nav justify-content-end">
-                <a className= "navbar-brand">
+            <div>
+                <nav className="navbar navbar-dark nav justify-content-end">
+                
                     <Link>Home</Link>
-                </a>
-                <a className= "navbar-brand">
                     <Link>ItemList</Link>
-                </a>
         </nav>
-        )
+        {" "}
+        <div className="row top-section">
+            <div className="col-md-10">
+                <br />
+                    <div className="logoApp">
+                        <span><img
+                            src="https://i.pinimg.com/236x/a9/ff/02/a9ff027115ed0ce7922b9f29c4a8d88a--logo-bookstore-book-logo-design.jpg"
+                            alt="..."/>
+                        </span>
+                        <span> Luminex Book Shop</span>
+                    </div>
+            </div>
+        </div>
+            </div>
+            
+        );
+
     }
 
 }

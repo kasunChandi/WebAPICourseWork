@@ -16,9 +16,15 @@ class admin extends Component
             <h6>ItemCode : {this.props.book.itemCode}</h6>
             <h6>Price : Rs.{this.props.book.itemPrice}</h6>
             <h6>Available Quantity : {this.props.book.itemQty} </h6>
-            <div className="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" className="btn btn-primary">Update</button>
-                    <button type="button" className="btn btn-danger">Delete</button>
+            <div>
+                    <button type="button" className="btn btn-primary">
+                      Update
+                    </button>
+                    {"  "}
+                    <button type="button" className="btn btn-danger" onClick={this.props.bookDelete} >
+                      Delete
+                    </button>
+                    
             </div>
           </div>
         </div>

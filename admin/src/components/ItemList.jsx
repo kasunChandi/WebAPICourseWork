@@ -15,7 +15,10 @@ class ItemList extends Component
             <div className="row">
                {this.state.allBooks.map((book) => (
                    <div className="col" key= {book.id}>
-                       <Admin key={book.id} book = {book} />
+                       <Admin key={book.id} 
+                       book = {book} 
+                       bookDelete = {()=> this.deleteItem(book.id)}
+                       />
                    </div>
                ))}   
             </div>
@@ -23,6 +26,16 @@ class ItemList extends Component
         </div>
         )
     }
+
+       async deleteItem(deleteItemId)
+       {
+            let NewItemBook =  this.state.allBooks.filter(
+                (book) => book.id !=deleteItemId
+            );
+
+            await axios.delete(`http://localhost:5000/api/admin/items/${deleteItemId}`);
+            this.setState({allBooks : NewItemBook});
+       }
 
        async componentDidMount()
         {
