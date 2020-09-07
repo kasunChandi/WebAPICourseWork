@@ -1,57 +1,104 @@
 import React, {Component} from "react";
+import axios from 'axios'
 
 
 class AddItem extends Component
 {
-    render()
+    constructor(props)
     {
+        super(props)
+        this.state ={
+            itemCode        : '',
+            itemName        : '',
+            imgUrl          : '',
+            author          : '',
+            itemDescription : '',
+            Currencytype    : '',
+            itemQty         : '',
+            itemPrice       : '',
+            likeCount       : ''
+            
+
+        }
+    }
+    changeHandler = (e) =>
+    {
+        this.setState({ [e.target.name ]: e.target.value })
+    }
+
+    submitHandler = (e) =>
+    {
+        e.preventDefault()
+        console.log(this.state)
+
+        axios.post("http://localhost:5000/api/admin/items",this.state)
+            .then( Response =>
+                {
+                    console.log(Response)
+                })
+            .catch( error =>
+                {
+                    console.log(console.error)
+                })
+    }
+
+    render(){
+
+        const{itemCode,itemName,imgUrl,author,itemDescription,Currencytype,itemQty,itemPrice,likeCount} =this.state
+
         return (
             <div>
-                <form>
+                <form onSubmit={this.submitHandler}>
                     <div className ="form-row align-items-center">
                         <div className = "form-group col-md-16">
-                            <input type="text" className="form-control" placeholder="Item Code"/>      
+                            <label>Item Code :</label>
+                            <input type="text" className="form-control" name="itemCode" value={itemCode} onChange={this.changeHandler} />      
                         </div>
                         <div className="form-group col-md-6">
-                            <input type="text" className="form-control" placeholder="Item Name"></input>
+                            <label>Item Name :</label>
+                            <input type="text" className="form-control" name="itemName" value={itemName} onChange={this.changeHandler}/>
                         </div>
                         <div className="form-group col-md-6">
-                            <input type="text" className="form-control" placeholder="Image URL of the Item"></input>
+                            <label>Image URL of the Item :</label>
+                            <input type="text" className="form-control" name="imgUrl" value={imgUrl} onChange={this.changeHandler}/>
                         </div>
                         <div className="form-group col-md-6">
-                            <input type="text" className="form-control" placeholder="Author Name"></input>
+                            <label>Author :</label>
+                            <input type="text" className="form-control" name="author" value={author} onChange={this.changeHandler}/>
                         </div>
                         <div className="form-group col">
-                            <label>Description about the Book</label>
-                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label>Item Description :</label>
+                        <textarea className="form-control" name= "itemDescription" rows="5" value={itemDescription} onChange={this.changeHandler}/>
                         </div>
                         
                         <div className="form-group col-md-16">
-                            <input type="text" className="form-control" placeholder="Currency type"></input>
+                            <label>Currency Type :</label>
+                            <input type="text" className="form-control" name="Currencytype" value={Currencytype} onChange={this.changeHandler}/>
                         </div>
                         <div className="form-group col-md-16">
-                            <input type="number" className="form-control" placeholder="Quantity"></input>
+                            <label>Quantity :</label>
+                            <input type="number" className="form-control" name="itemQty" value={itemQty} onChange={this.changeHandler}/>
                         </div>
                         <div className="form-group col-md-16">
-                            <input type="number" className="form-control" placeholder="Price"></input>
+                            <label>Price :</label>
+                            <input type="text" className="form-control" name="itemPrice" value={itemPrice} onChange={this.changeHandler}/>
                         </div>
                         <div className="form-group col-md-16">
-                            <input type="number" className="form-control" placeholder="Like Count"></input>
+                            <label>Like Count :</label>
+                            <input className="form-control" id="disabledInput" name="likeCount" placeholder="0" disabled  value={likeCount} onChange={this.changeHandler}/>
                         </div>
+                        
                     </div>
-                    <button type="submit" className="btn btn-success">Save</button>
-                    {" "}
-                    <button className= "btn btn-primary" onClick={this.goHome}> Go to Item List</button>
-
-                        
+                    <div>
+                        <button type="submit" className="btn btn-success">Save</button>
+                        {" "}
+                        <button className= "btn btn-primary" onClick={this.goHome}> Back to Item List</button> 
+                    </div>
                 </form>
             </div>
-
-                 
             
         )
     }
-
 
     goHome = () =>
     {
