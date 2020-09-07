@@ -35,7 +35,12 @@ class Aboutus extends Component {
 </tr>
  </tbody>
   </table>
+  <div className="chart-view">
+    <img src="https://quickchart.io/chart?c={type:'pie',data:{labels:['June','July', 'August','September'], datasets:[{data:[10,47,35,80]}]}}" width='500px' height='300px'/>
+    <span>User Hits</span>
+  </div>
 </div>
+
         )
     }
 
