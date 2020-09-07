@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom"
-import logo from "../Assests/icon.jpg"
+import {Link} from "react-router-dom";
+import logo from "../Assests/icon.jpg";
+
 
 class NavBar extends Component
 {
-    state = {}
+    state = {};
 
     render()
     {
@@ -25,10 +26,13 @@ class NavBar extends Component
                             src = {logo}
                             
                             alt="..."/>
-                            <h3>
-                                Lluminex Bookshop
-                            </h3>
+                            <h4>
+                                Luminex Bookshop
+                            </h4>
                     </div>
+            </div>
+            <div>
+
             </div>
         </div>
             </div>

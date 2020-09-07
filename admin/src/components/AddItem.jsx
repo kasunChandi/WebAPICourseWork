@@ -104,5 +104,6 @@ class AddItem extends Component
     {
         this.props.history.push("/admin/items");
     }
+    
 }
 export default AddItem;

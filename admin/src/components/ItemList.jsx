@@ -21,7 +21,6 @@ class ItemList extends Component
                    <div className="col" key= {book.id}>
                        <Admin key={book.id} 
                        book = {book} 
-                       bookUpdate = {()=>this.updateItem(book)}
                        bookDelete = {()=> this.deleteItem(book.id)}
                        />
                    </div>
@@ -31,11 +30,8 @@ class ItemList extends Component
         </div>
         )
     }
+    
 
-        async updateItem(book)
-        {
-            await axios.put(`http://localhost:5000/api/admin/items/${book.id}`)
-        }
 
        async deleteItem(deleteItemId)
        {
