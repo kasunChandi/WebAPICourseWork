@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component} from "react"; 
 
 class admin extends Component
 {
@@ -9,6 +9,7 @@ class admin extends Component
     render()
     {
         return (  
+          
           <div className="card" style={{width: "20rem"}}>
           <img src={this.props.book.imgUrl} className="card-img-top" alt="..."/>
           <div className="card-body">
@@ -17,7 +18,7 @@ class admin extends Component
             <h6>Price : Rs.{this.props.book.itemPrice}</h6>
             <h6>Available Quantity : {this.props.book.itemQty} </h6>
             <div>
-                    <button type="button" className="btn btn-primary">
+                    <button type="button" className="btn btn-primary" onClick={this.props.updateItem} >
                       Update
                     </button>
                     {"  "}
