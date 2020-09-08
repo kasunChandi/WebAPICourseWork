@@ -17,8 +17,6 @@ class AddItem extends Component
             itemQty         : '',
             itemPrice       : '',
             likeCount       : ''
-            
-
         }
     }
     changeHandler = (e) =>
@@ -30,6 +28,8 @@ class AddItem extends Component
     {
         e.preventDefault()
         console.log(this.state)
+        
+        
 
         axios.post("http://localhost:5000/api/admin/items",this.state)
             .then( Response =>
@@ -42,6 +42,7 @@ class AddItem extends Component
                 })
     }
 
+    
     render(){
 
         const{itemCode,itemName,imgUrl,author,itemDescription,Currencytype,itemQty,itemPrice,likeCount} =this.state
@@ -85,7 +86,7 @@ class AddItem extends Component
                         </div>
                         <div className="form-group col-md-16">
                             <label>Like Count :</label>
-                            <input className="form-control" id="disabledInput" name="likeCount" placeholder="0" disabled  value={likeCount} onChange={this.changeHandler}/>
+                            <input className="form-control" id="disabledInput" name="likeCount" placeholder="1" disabled  value={likeCount} onChange={this.changeHandler}/>
                         </div>
                         
                     </div>

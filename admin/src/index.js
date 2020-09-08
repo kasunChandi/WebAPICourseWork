@@ -14,7 +14,7 @@ ReactDOM.render(
                 <NavBar />
                 <Route exact path="/" component= {Home}/>
                 <Route exact path="/admin/items" component= {ItemList} />
-                <Route exact path="/admin/items/itemdetails" component= {ItemDetails}/>
+                <Route exact path="/admin/itemdetails" component= {ItemDetails}/>
                 <Route exact path="/admin/additem" component ={AddItem}/>
             </BrowserRouter>,   
             document.getElementById('root'));

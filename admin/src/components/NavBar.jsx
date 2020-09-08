@@ -16,6 +16,7 @@ class NavBar extends Component
                     <Link className="btn" to="/">Home</Link>{" "}
                     <Link className="btn" to="/admin/items">Item List</Link>
                     <Link className="btn" to="/admin/additem">Add Item</Link>
+                    <Link className="btn" to="/admin/itemdetails">Update</Link>
         </nav>
         {" "}
         <div className="row top-section">
