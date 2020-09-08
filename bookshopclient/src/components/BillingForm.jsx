@@ -125,6 +125,7 @@ class BillingForm extends Component {
     var city = document.getElementById('city').value;
     var state = document.getElementById('state').value;
     var zip = document.getElementById('zip').value;
+    var tot = this.state.totalPrice;
 
     console.log(fName,email,address,city,state,zip);
     console.log(order);
@@ -138,6 +139,7 @@ class BillingForm extends Component {
             userCity: city,
             userState: state,
             userZip: zip,
+            totalAmount: tot,
             userOrder: order
     })
     .then(response => {
