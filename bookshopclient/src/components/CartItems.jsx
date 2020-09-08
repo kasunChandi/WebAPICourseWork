@@ -3,6 +3,7 @@ import axios from "axios";
 import CartItem from "./CartItem";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
+import cartItem from "./CartItem";
 
 class CartItems extends Component {
   state = {
@@ -89,6 +90,8 @@ class CartItems extends Component {
     });
     this.setState({totalPrice: total})
   }
+
+
 }
 
 export default withAuth0(CartItems);
