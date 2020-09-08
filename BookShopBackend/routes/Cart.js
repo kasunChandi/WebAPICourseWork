@@ -43,4 +43,18 @@ router.delete("/:cartitemid", async (req, res) => {
   }
 });
 
+// for the future use
+/*router.put("/:bookid", async (req, res) => {
+  try {
+    let updatedItem = await cartItem.findOneAndUpdate(
+      { _id: req.params.bookid },
+      { $set: { itemQty: req.body.itemQty } },
+      { new: true, useFindAndModify: false }
+    );
+    res.send(updatedItem);
+  } catch (e) {
+    return res.status(500).send(e.message);
+  }
+});*/
+
 module.exports = router;
