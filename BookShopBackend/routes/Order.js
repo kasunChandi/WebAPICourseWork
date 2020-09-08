@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
             userCity: req.body.userCity,
             userState: req.body.userState,
             userZip: req.body.userZip,
+            totalAmount: req.body.totalAmount,
             userOrder: req.body.userOrder
         });
 
@@ -35,7 +36,7 @@ router.post('/', async (req, res) => {
             subject: 'Your order detais',
             text: `Thankyou for placing order through Luminex Book Shop. Customer name and delivery address are bellow , 
             \n\n ${req.body.userName} \n Address: ${req.body.userAddress} \n city: ${req.body.userCity}\n state: ${req.body.userState} \n
-            Description: ${req.body.userOrder}\n\nThank You Come again...`
+            Full Amount: ${req.body.totalAmount} LKR \n Description: ${req.body.userOrder}\n\nThank You Come again...`
           };
     
           transporter.sendMail(mailOptions, function(error, info){
