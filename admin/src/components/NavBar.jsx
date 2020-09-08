@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom"
+import logo from "../Assests/icon.jpg"
 
 class NavBar extends Component
 {
@@ -11,19 +12,22 @@ class NavBar extends Component
             <div>
                 <nav className="navbar navbar-dark nav justify-content-end">
                 
-                    <Link>Home</Link>
-                    <Link>ItemList</Link>
+                    <Link className="btn" to="/">Home</Link>{" "}
+                    <Link className="btn" to="/admin/items">Item List</Link>
+                    <Link className="btn" to="/admin/additem">Add Item</Link>
         </nav>
         {" "}
         <div className="row top-section">
             <div className="col-md-10">
                 <br />
                     <div className="logoApp">
-                        <span><img
-                            src="https://i.pinimg.com/236x/a9/ff/02/a9ff027115ed0ce7922b9f29c4a8d88a--logo-bookstore-book-logo-design.jpg"
+                        <img 
+                            src = {logo}
+                            
                             alt="..."/>
-                        </span>
-                        <span> Luminex Book Shop</span>
+                            <h3>
+                                Lluminex Bookshop
+                            </h3>
                     </div>
             </div>
         </div>
