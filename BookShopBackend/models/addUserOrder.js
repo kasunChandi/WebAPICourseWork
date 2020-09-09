@@ -41,6 +41,7 @@ const userSchema = new mongoose.Schema({
     minlength: 4,
     required: true
     },
+    totalAmount: Number,
     userOrder: []
 
 });
