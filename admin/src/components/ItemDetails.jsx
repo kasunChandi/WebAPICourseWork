@@ -1,32 +1,27 @@
-import React, {Component} from "react";
+/*import React, {Component} from "react";
 
 class ItemDetails extends Component 
 {
-    state ={};
+    state ={
+        itemQty = this.props.itemQty,
+    };
     render()
     {
         return(
             <div>
-                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        <div className="modal-body">
-        
+                <form>
+                    <div className ="form-row align-items-center">
+                        <div className = "form-group col-md-16">
+                            <label>New Item Quantity :</label>
+                            <input type="text" className="form-control" name="itemQty" value={itemQty} onChange={this.changeHandler} />      
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label>New Item Price :</label>
+                            <input type="text" className="form-control" name="itemPrice" value={item} onChange={this.changeHandler}/>
+                        </div>
                     </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
-                     </div>
-                    </div>
-                </div>
+                </form>
             </div>
-         </div>
       
       )
 
@@ -40,9 +35,10 @@ class ItemDetails extends Component
            itemQty: book.itemQty,
            itemPrice: book.itemPrice
            });
-*/
+
        
     }
     
 }
 export default ItemDetails;
+*/

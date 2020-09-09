@@ -4,8 +4,6 @@ import Admin from "./Admin";
 
 
 
-
-
 class ItemList extends Component
 {
     state = {
@@ -24,7 +22,7 @@ class ItemList extends Component
                        <Admin key={book.id} 
                        book = {book} 
                        bookDelete = {()=> this.deleteItem(book.id)}
-                       UpdateBook = {()=> this.updateItem()}
+                       
                        />
                    </div>
                ))}   
@@ -34,11 +32,6 @@ class ItemList extends Component
         )
     }
     
-        updateItem = () =>
-       {
-        this.props.history.push("/admin/items/itemdetails");
-       }
-
        async deleteItem(deleteItemId)
        {
             let NewItemBook =  this.state.allBooks.filter(
