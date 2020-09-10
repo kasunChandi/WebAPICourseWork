@@ -1,4 +1,6 @@
 import React, {Component} from "react"; 
+import { Link } from "react-router-dom";
+
 
 class admin extends Component
 {
@@ -18,9 +20,8 @@ class admin extends Component
             <h6>Price : Rs.{this.props.book.itemPrice}</h6>
             <h6>Available Quantity : {this.props.book.itemQty} </h6>
             <div>
-                    <button type="button" className="btn btn-primary" onClick={this.props.updateItem} >
-                      Update
-                    </button>
+                    <Link to={"/admin/updateitem"+this.props.book.id} className="btn btn-primary">Update </Link>
+                      
                     {"  "}
                     <button type="button" className="btn btn-danger" onClick={this.props.bookDelete} >
                       Delete
@@ -33,5 +34,8 @@ class admin extends Component
        
         )
     }
+    
+
+  
 }
 export default admin;   
