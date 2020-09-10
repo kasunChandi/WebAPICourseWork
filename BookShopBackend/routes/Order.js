@@ -3,6 +3,7 @@ const router = express.Router();
 const userOrder = require('../models/addUserOrder');
 const cartItem = require('../models/addToCartSchema');
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 router.post('/', async (req, res) => {
     try{
@@ -25,8 +26,8 @@ router.post('/', async (req, res) => {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: 'lluminexbookshop96test@gmail.com',
-              pass: 'abc123@#'
+              user: process.env.EMAIL,
+              pass: process.env.PASSWORD
             }
         });
     
@@ -34,9 +35,9 @@ router.post('/', async (req, res) => {
             from: 'lluminexbookshop96test@gmail.com',
             to: req.body.userEmail,
             subject: 'Your order detais',
-            text: `Thankyou for placing order through Luminex Book Shop. Customer name and delivery address are bellow , 
-            \n\n ${req.body.userName} \n Address: ${req.body.userAddress} \n city: ${req.body.userCity}\n state: ${req.body.userState} \n
-            Full Amount: ${req.body.totalAmount} LKR \n Description: ${req.body.userOrder}\n\nThank You Come again...`
+            text: `Dear Customer \n Thankyou for placing order through Luminex Book Shop. Customer name and delivery address are bellow , 
+            \n\ncustomer name: ${req.body.userName} \n Address: ${req.body.userAddress} \n city: ${req.body.userCity}\n state: ${req.body.userState} \n
+            Full Amount: ${req.body.totalAmount} LKR \n Description: ${req.body.userOrder}\n\nwe will deliver this order within 5 working days!\n\nThank You Come again...`
           };
     
           transporter.sendMail(mailOptions, function(error, info){
@@ -64,5 +65,11 @@ router.delete('/:userid', async(req,res) =>{
       }
 });
 
+router.get('/', async (req, res) =>{
+  let getOrder = await userOrder.find();
+  res.send(getOrder);
+  console.log(getOrder);
+  });
+  
 
 module.exports = router;
