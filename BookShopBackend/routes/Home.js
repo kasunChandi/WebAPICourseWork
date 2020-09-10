@@ -3,8 +3,13 @@ const router = express.Router();
 const Book = require("../models/itemSchema");
 
 router.get("/", async (req, res) => {
+ try{
   let itemList = await Book.find();
   res.send(itemList);
+ }
+  catch(e){
+    return res.status(404).send(e.message);
+  }
 });
 
 router.get("/:itemid", async (req, res) => {
