@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
             subject: 'Your order detais',
             text: `Dear Customer \n Thankyou for placing order through Luminex Book Shop. Customer name and delivery address are bellow , 
             \n\ncustomer name: ${req.body.userName} \n Address: ${req.body.userAddress} \n city: ${req.body.userCity}\n state: ${req.body.userState} \n
-            Full Amount: ${req.body.totalAmount} LKR \n Description: ${req.body.userOrder}\n\nwe will deliver this order within 5 working days!\n\nThank You Come again...`
+            Full Amount: ${req.body.totalAmount} LKR \n Description: ${req.body.userOrder}\n\n we will deliver this order within 5 working days!\n\nThank You Come again...`
           };
     
           transporter.sendMail(mailOptions, function(error, info){
