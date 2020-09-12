@@ -36,13 +36,14 @@ D.A.I. Prabhash	       COBSCCOMP191P-010	     Student 04
   
   
    # Student 4
+   
   Implementation of Admin portal
-  Successful implementation of REST Verbs (GET) [5]
-  Successful implementation of REST Verbs (GET with Params) [5]
-  Successful implementation of REST Verbs (DELETE) [7]
-  Successful implementation of REST Verbs (PUT) [8]
-  Related client-side functionality [10]
-  Do API documentation using auto generated API documentation tools [10]
+       Successful implementation of REST Verbs (GET)
+      Successful implementation of REST Verbs (GET with Params)
+        Successful implementation of REST Verbs (DELETE)
+      Successful implementation of REST Verbs (PUT) 
+     Related client-side functionalit
+      Do API documentation using auto generated API documentation tools 
    
    
    
